@@ -52,7 +52,7 @@ function Search({ searchResults }) {
 
           <div
             className="flex flex-col"
-            onClick={() => router.push("/results")}
+            // onClick={() => router.push("/results")}
           >
             {searchResults.map(
               ({ img, location, title, description, star, price, total }) => (
