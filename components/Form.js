@@ -8,10 +8,9 @@ import {
   FormGroup,
   Label,
   Input,
-  FormText,
 } from "reactstrap";
 
-function Form() {
+function FormHost() {
   const [modalOpen, setModalOpen] = useState(false);
 
   document.getElementById("submit").addEventListener("click", (e) => {
@@ -130,4 +129,4 @@ function Form() {
   );
 }
 
-export default Form;
+export default FormHost;

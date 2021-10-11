@@ -11,7 +11,7 @@ import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { DateRangePicker } from "react-date-range";
 import { useRouter } from "next/dist/client/router";
-import Form from "./Form";
+import FormHost from "./Form";
 
 function Nav({ placeholder }) {
   const [searchInput, setSearchInput] = useState("");
@@ -74,7 +74,7 @@ function Nav({ placeholder }) {
         </div>
 
         <div className="nav-menu flex space-x-3 items-center justify-end text-gray-500">
-          <Form />
+          <FormHost />
           <GlobeAltIcon className="h-10 p-2 cursor-pointer  hover:rounded-full hover:bg-gray-500 hover:bg-opacity-40" />
           <div className="flex items-center space-x-2 border-4 p-2 rounded-full bg-white">
             <MenuIcon className="h-6 cursor-pointer" />
