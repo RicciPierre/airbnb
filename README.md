@@ -10,4 +10,4 @@ To extend my knowledge I've decided to create an Airbnb clone using **Next.js** 
 
 ## Preview 👀
 
-[[Preview](./preview.png)](https://airbnb-tawny.vercel.app/)
+[![Preview](./preview.jpg)](https://airbnb-tawny.vercel.app/)
