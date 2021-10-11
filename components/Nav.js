@@ -73,9 +73,7 @@ function Nav({ placeholder }) {
         </div>
 
         <div className="nav-menu flex space-x-3 items-center justify-end text-gray-500">
-          <p className="hidden text-base font-semibold px-4 py-2 cursor-pointer hover:rounded-full hover:bg-gray-500 hover:bg-opacity-40 md:inline">
-            Become a host
-          </p>
+          <Form />
           <GlobeAltIcon className="h-10 p-2 cursor-pointer  hover:rounded-full hover:bg-gray-500 hover:bg-opacity-40" />
           <div className="flex items-center space-x-2 border-4 p-2 rounded-full bg-white">
             <MenuIcon className="h-6 cursor-pointer" />
