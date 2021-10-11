@@ -13,6 +13,13 @@ function FormHost() {
   const [longValue, setLongValue] = useState({ value: " " });
   const [latValue, setLatValue] = useState({ value: " " });
 
+  const customStyle = {
+    content: {
+      top: "95px",
+      overflow: "hidden",
+    },
+  };
+
   function handleChange(e) {
     setImageValue({ value: e.target.value });
     setLocationValue({ value: e.target.value });
@@ -60,8 +67,12 @@ function FormHost() {
       >
         Become a host
       </Button>
-      <Modal toggle={() => setModalOpen(!modalOpen)} isOpen={modalOpen}>
-        <div className=" modal-header flex justify-between my-5">
+      <Modal
+        toggle={() => setModalOpen(!modalOpen)}
+        isOpen={modalOpen}
+        style={customStyle}
+      >
+        <div className=" modal-header flex justify-between mb-20 items-center">
           <h5
             className=" modal-title text-3xl font-semibold"
             id="exampleModalLabel"
@@ -77,7 +88,7 @@ function FormHost() {
         </div>
         <Form
           onSubmit={handleSubmit}
-          className="space-y-5 text-xl grid grid-col-2 w-xl max-w-xl text-center ml-auto mr-auto"
+          className="space-y-5 text-xl w-xl max-w-xl text-center ml-auto mr-auto"
         >
           <FormGroup>
             <Label className="label" for="img">
@@ -178,14 +189,15 @@ function FormHost() {
             className="cursor-pointer button"
           />
         </Form>
-        <Button
-          color="secondary"
-          type="button"
-          onClick={() => setModalOpen(!modalOpen)}
-          className="button"
-        >
-          Close
-        </Button>
+        <div className="float-right mt-14 pr-5">
+          <Button
+            type="button"
+            onClick={() => setModalOpen(!modalOpen)}
+            className="button"
+          >
+            Close
+          </Button>
+        </div>
       </Modal>
     </div>
   );
