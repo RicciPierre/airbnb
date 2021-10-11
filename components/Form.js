@@ -12,28 +12,36 @@ import {
 
 function FormHost() {
   const [modalOpen, setModalOpen] = useState(false);
+  const [imgValue, setImageValue] = useState({ value: " " });
+  const [locationValue, setLocationValue] = useState({ value: " " });
+  const [titleValue, setTitleValue] = useState({ value: " " });
+  const [descriptionValue, setDescriptionValue] = useState({ value: " " });
+  const [priceValue, setPriceValue] = useState({ value: " " });
+  const [longValue, setLongValue] = useState({ value: " " });
+  const [latValue, setLatValue] = useState({ value: " " });
 
-  document.getElementById("submit").addEventListener("click", (e) => {
-    e.preventDefault();
-    let imgValue = document.getElementById("img").value;
-    let locationValue = document.getElementById("location").value;
-    let titleValue = document.getElementById("title").Value;
-    let descripitonValue = document.getElementById("description").value;
-    let priceValue = document.getElementById("price").value;
-    let longValue = document.getElementById("long").value;
-    let latValue = document.getElementById("lat").value;
+  function handleChange(e) {
+    setImageValue({ value: e.target.value });
+    setLocationValue({ value: e.target.value });
+    setTitleValue({ value: e.target.value });
+    setDescriptionValue({ value: e.target.value });
+    setPriceValue({ value: e.target.value });
+    setLongValue({ value: e.target.value });
+    setLatValue({ value: e.target.value });
+  }
 
+  function handleSubmit(e) {
     const data = {
       img: imgValue,
       location: locationValue,
       title: titleValue,
-      description: descripitonValue,
+      description: descriptionValue,
       price: priceValue,
       long: longValue,
       lat: latValue,
     };
     console.log(JSON.stringify(data));
-    fetch("https://airbnb-tawny.vercel.app/api/send", {
+    fetch("https://airbnb-tawny.vercel.app/api", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
@@ -47,7 +55,9 @@ function FormHost() {
       .catch((error) => {
         console.log(error);
       });
-  });
+    e.preventDefault();
+  }
+
   return (
     <div>
       <Button
@@ -72,18 +82,30 @@ function FormHost() {
           </button>
         </div>
         <ModalBody>
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <FormGroup>
               <Label for="img">Choose an image</Label>
-              <Input type="img" name="img" id="img" />
+              <Input type="img" name="img" id="img" onChange={handleChange} />
             </FormGroup>
             <FormGroup>
               <Label for="location">Location</Label>
-              <Input type="text" name="location" id="location" placeholder="" />
+              <Input
+                type="text"
+                name="location"
+                id="location"
+                placeholder=""
+                onChange={handleChange}
+              />
             </FormGroup>
             <FormGroup>
               <Label for="title">Name of your place</Label>
-              <Input type="text" name="title" id="title" placeholder="" />
+              <Input
+                type="text"
+                name="title"
+                id="title"
+                placeholder=""
+                onChange={handleChange}
+              />
             </FormGroup>
             <FormGroup>
               <Label for="description">Description</Label>
@@ -92,19 +114,38 @@ function FormHost() {
                 name="description"
                 id="description"
                 placeholder=""
+                onChange={handleChange}
               />
             </FormGroup>
             <FormGroup>
               <Label for="price">Price by night</Label>
-              <Input type="number" name="price" id="price" placeholder="" />
+              <Input
+                type="number"
+                name="price"
+                id="price"
+                placeholder=""
+                onChange={handleChange}
+              />
             </FormGroup>
             <FormGroup>
               <Label for="long">Longitude</Label>
-              <Input type="number" name="long" id="long" placeholder="" />
+              <Input
+                type="number"
+                name="long"
+                id="long"
+                placeholder=""
+                onChange={handleChange}
+              />
             </FormGroup>
             <FormGroup>
               <Label for="lat">Latitude</Label>
-              <Input type="number" name="lat" id="lat" placeholder="" />
+              <Input
+                type="number"
+                name="lat"
+                id="lat"
+                placeholder=""
+                onChange={handleChange}
+              />
             </FormGroup>
             <Input
               type="submit"
