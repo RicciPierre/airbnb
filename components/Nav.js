@@ -11,6 +11,7 @@ import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { DateRangePicker } from "react-date-range";
 import { useRouter } from "next/dist/client/router";
+import Form from "./Form";
 
 function Nav({ placeholder }) {
   const [searchInput, setSearchInput] = useState("");
