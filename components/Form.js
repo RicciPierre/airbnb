@@ -1,5 +1,15 @@
 import { useState } from "react";
-import { Button, Modal, ModalBody, ModalFooter } from "reactstrap";
+import {
+  Button,
+  Modal,
+  ModalBody,
+  ModalFooter,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  FormText,
+} from "reactstrap";
 
 function Form() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -24,7 +34,7 @@ function Form() {
       lat: latValue,
     };
     console.log(JSON.stringify(data));
-    fetch("http://localhost:1337/send", {
+    fetch("https://airbnb-tawny.vercel.app/api/send", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
@@ -63,22 +73,48 @@ function Form() {
           </button>
         </div>
         <ModalBody>
-          <form action="post">
-            <h3>Choose an image</h3>
-            <input id="img" type="img" />
-            <h3>Location</h3>
-            <input id="location" type="text" />
-            <h3>Name of your Place</h3>
-            <input id="title" type="text" />
-            <h3>Description</h3>
-            <input id="description" type="text" />
-            <h3>Price by night</h3>
-            <input id="price" type="number" />
-            <h3>Longitude</h3>
-            <input id="long" type="number" />
-            <h3>Latitude</h3>
-            <input id="lat" type="number" />
-          </form>
+          <Form>
+            <FormGroup>
+              <Label for="img">Choose an image</Label>
+              <Input type="img" name="img" id="img" />
+            </FormGroup>
+            <FormGroup>
+              <Label for="location">Location</Label>
+              <Input type="text" name="location" id="location" placeholder="" />
+            </FormGroup>
+            <FormGroup>
+              <Label for="title">Name of your place</Label>
+              <Input type="text" name="title" id="title" placeholder="" />
+            </FormGroup>
+            <FormGroup>
+              <Label for="description">Description</Label>
+              <Input
+                type="text"
+                name="description"
+                id="description"
+                placeholder=""
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label for="price">Price by night</Label>
+              <Input type="number" name="price" id="price" placeholder="" />
+            </FormGroup>
+            <FormGroup>
+              <Label for="long">Longitude</Label>
+              <Input type="number" name="long" id="long" placeholder="" />
+            </FormGroup>
+            <FormGroup>
+              <Label for="lat">Latitude</Label>
+              <Input type="number" name="lat" id="lat" placeholder="" />
+            </FormGroup>
+            <Input
+              type="submit"
+              value="submit"
+              name="submit"
+              id="submit"
+              placeholder=""
+            />
+          </Form>
         </ModalBody>
         <ModalFooter>
           <Button
@@ -87,9 +123,6 @@ function Form() {
             onClick={() => setModalOpen(!modalOpen)}
           >
             Close
-          </Button>
-          <Button id="submit" className="lul" type="submit">
-            Submit
           </Button>
         </ModalFooter>
       </Modal>
