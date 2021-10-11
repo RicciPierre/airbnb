@@ -1,5 +1,7 @@
 import "tailwindcss/tailwind.css";
 import "../styles/button.css";
+import "../styles/label.css";
+import "../styles/input.css";
 import ProgressBar from "@badrap/bar-of-progress";
 import { Router } from "next/dist/client/router";
 

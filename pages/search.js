@@ -33,11 +33,11 @@ function Search({ searchResults }) {
             300 + Stays {range} {nbOfGuests} guests
           </p>
           <div className="hidden mb-5 space-x-2 whitespace-nowrap md:inline-flex">
-            <button className="filter">Cancelletion Flexibility</button>
-            <button className="filter">Type of Place</button>
-            <button className="filter">Price</button>
-            <button className="filter">Rooms and Beds</button>
-            <button onClick={toggle} className="filter">
+            <button className="button">Cancelletion Flexibility</button>
+            <button className="button">Type of Place</button>
+            <button className="button">Price</button>
+            <button className="button">Rooms and Beds</button>
+            <button onClick={toggle} className="button">
               More filters
             </button>
           </div>

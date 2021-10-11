@@ -1,14 +1,7 @@
 import { useState } from "react";
-import {
-  Button,
-  Modal,
-  ModalBody,
-  ModalFooter,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-} from "reactstrap";
+import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import Modal from "react-modal";
+import { XIcon } from "@heroicons/react/outline";
 
 function FormHost() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -68,103 +61,131 @@ function FormHost() {
         Become a host
       </Button>
       <Modal toggle={() => setModalOpen(!modalOpen)} isOpen={modalOpen}>
-        <div className=" modal-header">
-          <h5 className=" modal-title" id="exampleModalLabel">
-            Modal title
+        <div className=" modal-header flex justify-between my-5">
+          <h5
+            className=" modal-title text-3xl font-semibold"
+            id="exampleModalLabel"
+          >
+            Register your place
           </h5>
-          <button
+          <XIcon
             aria-label="Close"
-            className=" close"
+            className=" close h-8 cursor-pointer"
             type="button"
             onClick={() => setModalOpen(!modalOpen)}
-          >
-            <span aria-hidden={true}>×</span>
-          </button>
+          />
         </div>
-        <ModalBody>
-          <Form onSubmit={handleSubmit}>
-            <FormGroup>
-              <Label for="img">Choose an image</Label>
-              <Input type="img" name="img" id="img" onChange={handleChange} />
-            </FormGroup>
-            <FormGroup>
-              <Label for="location">Location</Label>
-              <Input
-                type="text"
-                name="location"
-                id="location"
-                placeholder=""
-                onChange={handleChange}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label for="title">Name of your place</Label>
-              <Input
-                type="text"
-                name="title"
-                id="title"
-                placeholder=""
-                onChange={handleChange}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label for="description">Description</Label>
-              <Input
-                type="text"
-                name="description"
-                id="description"
-                placeholder=""
-                onChange={handleChange}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label for="price">Price by night</Label>
-              <Input
-                type="number"
-                name="price"
-                id="price"
-                placeholder=""
-                onChange={handleChange}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label for="long">Longitude</Label>
-              <Input
-                type="number"
-                name="long"
-                id="long"
-                placeholder=""
-                onChange={handleChange}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label for="lat">Latitude</Label>
-              <Input
-                type="number"
-                name="lat"
-                id="lat"
-                placeholder=""
-                onChange={handleChange}
-              />
-            </FormGroup>
+        <Form
+          onSubmit={handleSubmit}
+          className="space-y-5 text-xl grid grid-col-2 w-xl max-w-xl text-center ml-auto mr-auto"
+        >
+          <FormGroup>
+            <Label className="label" for="img">
+              Choose an image
+            </Label>
             <Input
-              type="submit"
-              value="submit"
-              name="submit"
-              id="submit"
-              placeholder=""
+              type="image"
+              name="img"
+              id="img"
+              onChange={handleChange}
+              className="input"
             />
-          </Form>
-        </ModalBody>
-        <ModalFooter>
-          <Button
-            color="secondary"
-            type="button"
-            onClick={() => setModalOpen(!modalOpen)}
-          >
-            Close
-          </Button>
-        </ModalFooter>
+          </FormGroup>
+          <FormGroup>
+            <Label className="label" for="location">
+              Location
+            </Label>
+            <Input
+              type="text"
+              name="location"
+              id="location"
+              placeholder=""
+              onChange={handleChange}
+              className="input"
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label className="label" for="title">
+              Name of your place
+            </Label>
+            <Input
+              type="text"
+              name="title"
+              id="title"
+              placeholder=""
+              onChange={handleChange}
+              className="input"
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label className="label" for="description">
+              Description
+            </Label>
+            <Input
+              type="text"
+              name="description"
+              id="description"
+              placeholder=""
+              onChange={handleChange}
+              className="input"
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label className="label" for="price">
+              Price by night
+            </Label>
+            <Input
+              type="number"
+              name="price"
+              id="price"
+              placeholder=""
+              onChange={handleChange}
+              className="input"
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label className="label" for="long">
+              Longitude
+            </Label>
+            <Input
+              type="number"
+              name="long"
+              id="long"
+              placeholder=""
+              onChange={handleChange}
+              className="input"
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label className="label" for="lat">
+              Latitude
+            </Label>
+            <Input
+              type="number"
+              name="lat"
+              id="lat"
+              placeholder=""
+              onChange={handleChange}
+              className="input"
+            />
+          </FormGroup>
+          <Input
+            type="submit"
+            value="submit"
+            name="submit"
+            id="submit"
+            placeholder=""
+            className="cursor-pointer button"
+          />
+        </Form>
+        <Button
+          color="secondary"
+          type="button"
+          onClick={() => setModalOpen(!modalOpen)}
+          className="button"
+        >
+          Close
+        </Button>
       </Modal>
     </div>
   );
